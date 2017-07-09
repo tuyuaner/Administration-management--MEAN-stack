@@ -1,0 +1,42 @@
+<div class="container">
+
+	<div class="row">
+    <ul>
+      <h1 >Monitor Trainees</h1>
+    </ul>
+
+    <div>
+  		<ul class="thumbnails" style="list-style: none" ng-repeat = "t in trainees">
+          <li class="span5 clearfix" >
+          <div class="thumbnail clearfix">
+            <!-- <img src="http://placehold.it/320x200" alt="ALT NAME" class="pull-left span2 clearfix" style='margin-right:10px'> -->
+            <div class="caption" class="pull-left">
+              <a  ng-click = "selected(t)" class="btn btn-primary icon pull-right">Select</a>
+              <h4>
+              <a href="#" >{{t.firstname}} {{t.lastname}}</a>
+              </h4>
+              <small><b>Batch: </b>{{t.batch}}</small>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <ul>
+          <div class="row">
+            <div class="col-md-3 col-sm-3">
+              <button type="submit" name="button" class="btn btn-info btn-block" ng-click = "top()" style="height: 40px; width:100px">Go To Top</button>
+
+            </div>
+            <div class="col-md-1 col-sm-1" style="float:right; margin-right:1%">
+              <button type="submit" name="button" class="btn btn-info btn-block" ng-click = "back()" style="height: 40px; width:80px">Back</button>
+
+            </div>
+          </div>
+
+        </ul>
+
+      </div>
+  </div>
+
+	</div>
+</div>

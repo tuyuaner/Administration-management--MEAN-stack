@@ -1,0 +1,81 @@
+<form class="form" id = "sign_up" ng-submit="addTrainee()" name="userForm">
+  <h2 class="sign_hearder">Sign Up</h2>
+  <div class="alert alert-success" ng-show = addTraineeMessage>
+    <strong>Success!</strong> {{addTraineeMessage}}
+    <strong style="float:right">{{redirect}}</strong>
+  </div>
+
+  <div class="form-group" style="margin-top: 25px">
+    <label for="batch" >Batch:</label>
+    <select ng-model="userInfo.batch" ng-options="x for x in batchList">
+    </select>
+    <span ng-show = "userForm.batch.$dirty && userForm.batch.$error.required">Batch required!</span>
+  </div>
+  <div class="form-group">
+    <label for="username" >Username:</label>
+    <input type="text" name="username" value="" placeholder = "Enter username" class = "form-control" ng-model = "userInfo.username" required>
+    <span ng-show = "userForm.username.$dirty && userForm.username.$error.required">Username required!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="pwd" >Password:</label>
+    <input type="password" name="password" value="" placeholder = "Enter password" class = "passwordfiel form-control" ng-model = "userInfo.password" ng-minlength = "3" ng-maxlength = "16" required>
+    <span class="glyphicon glyphicon-eye-open" style="display: none"></span>
+    <span ng-show = "userForm.password.$dirty && userForm.password.$error.required">Password required!</span>
+    <span ng-show = "userForm.password.$dirty && userForm.password.$error.minlength">Too short!</span>
+    <span ng-show = "userForm.password.$dirty && userForm.password.$error.maxlength">Too Long!</span>
+  </div>
+  <div class="form-group">
+    <label for="firstname" >First name:</label>
+    <input type="text" name="firstname" value="" placeholder = "Enter firstname" class = "form-control" ng-model = "userInfo.firstname" required>
+    <span ng-show = "userForm.firstname.$dirty && userForm.firstname.$error.required">First name required!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="lastname" >Last name:</label>
+    <input type="text" name="lastname" value="" placeholder = "Enter lastname" class = "form-control" ng-model = "userInfo.lastname" required>
+    <span ng-show = "userForm.lastname.$dirty && userForm.lastname.$error.required">Last name required!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="email" >Email:</label>
+    <input type="email" name="email" value="" placeholder = "Enter Email" class = "form-control" ng-model = "userInfo.email" required>
+    <span ng-show = "userForm.email.$dirty && userForm.email.$error.required">Email required!</span>
+    <span ng-show = "userForm.email.$error.email"> not a email!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="phone" >Phone:</label>
+    <input type="number" name="phone" value="" placeholder = "Enter phone" class = "form-control" ng-model = "userInfo.phone" required>
+    <span ng-show = "userForm.phone.$dirty && userForm.phone.$error.required">Phone required!</span>
+    <span ng-show = "userForm.phone.$dirty && userForm.phone.$invalid">Not a number!</span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="clients" >Client Calls:</label>
+    <input data-drop="true" data-jqyoui-options jqyoui-droppable ="{onDrop:'myDropCallBack'}" id="clients_sign_up" type="clients" class="form-control" placeholder="Enter clients" name="clients" ng-model = "userInfo.client.name" required>
+    <ul class="list-inline clients_list" style="margin-left: 1px;">
+      <li data-drag="true" jqyoui-draggable="{animate:true}" data-jqyoui-options="{revert: 'invalid'}" ng-repeat='l in clients' name = {{l}}>{{l}}</li>
+    </ul>
+    <span ng-show = "userForm.clients.$dirty && userForm.clients.$error.required">clients required!</span>
+  </div>
+
+
+
+  <button type="submit" ng-disabled = "userForm.$invalid" name="button" class="btn btn-info btn-block">Add Trainee</button>
+  <input type="button" class="btn btn-info btn-block" value="Reset" ng-click = "reset()" style="height: 40px">
+
+<!--
+</form>
+
+
+<h2 class="sign_hearder">Sign Up</h2>
+<form class="" name="userForm">
+  <div class="form-group">
+    <label for="username" >Username:</label>
+    <input type="text" name="username" value="" placeholder = "Enter username" class = "form-control" ng-model = "userInfo.username" required>
+    <span ng-show = "userForm.username.$$dirty && userForm.username.$error.required">required!</span>
+  </div>
+
+</form> -->

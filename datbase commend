@@ -1,0 +1,116 @@
+
+show dbs
+use marlabs
+db.dropDatabase()
+
+show collections
+db.users.find()
+db.users.drop()
+db.users.find().pretty()
+
+db.trainees.find({}).pretty()
+db.trainees.remove({'username':'test'})
+
+
+db.trainees.insert(
+{
+    'batch':'trainer',
+    "username": "Nanda",
+    "firstname": "Nanda",
+    "lastname": "",
+    "email": "Nanda@marlabs.com",
+    "phone": "34324324323",
+    "password": '123',
+    'client_calls': 'samsung',
+    'client_call_date' : "2017-03-24T16:58:04Z "
+}
+)
+
+db.createCollection('messages')
+
+db.users.insert(
+{
+"username": "Arun",
+    "firstname": "Arungopan",
+    "lastname": "Gopakumar",
+    "email": "arun.gopan@marlabs.com",
+    "location": ["Piscataway", "Newyork", "Atlanta"],
+    "phone": "34324324323",
+    "password": '123'
+}
+)
+db.messages.insert(
+{
+
+    "recipient":"Arun",
+    "recipient_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+    "sender":"Nanda",
+    "sender_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+    "title":"This is the third message to Arun.",
+    "description":"This is the third description to the message which has the above title, Hey, We appreciate you taking the time to sign up for Triplebyte. We noticed you haven’t completed our programming quiz yet. If you’re interested in working with us, log on and do this when you have a moment: https://triplebyte.com/candidates We’re looking forward to working with you. You can read more on what we’ve learnt about improving the technical hiring process at http://data.triplebyte.com. Please let us know if there’s any questions we could answer, or if you’ve any feedback for us. Best, Triplebyte Team",
+    "created_at":"2017-03-19 09:45:00",
+    "important":"0"
+}
+)
+
+db.messages.insert(
+{
+[
+      {
+          "messageId":1,
+          "recipient":"Nanda",
+          "recipient_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "sender":"Arun",
+          "sender_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "title":"This is a sample message to Nanda.",
+          "description":"This is a sample description to the message which has the above title",
+          "created_at":"2017-01-20 09:45:00",
+          "important":"0"
+      },{
+        "messageId":2,
+          "recipient":"Arun",
+          "recipient_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "sender":"Nanda",
+          "sender_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "title":"This is a sample message to Arun.",
+          "description":"This is a sample description to the message which has the above title, Hey, We appreciate you taking the time to sign up for Triplebyte. We noticed you haven’t completed our programming quiz yet. If you’re interested in working with us, log on and do this when you have a moment: https://triplebyte.com/candidates We’re looking forward to working with you. You can read more on what we’ve learnt about improving the technical hiring process at http://data.triplebyte.com. Please let us know if there’s any questions we could answer, or if you’ve any feedback for us. Best, Triplebyte Team",
+          "created_at":"2017-03-19 09:45:00",
+          "important":"0"
+      },{
+        "messageId":3,
+          "recipient":"Arun",
+          "recipient_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "sender":"Nanda",
+          "sender_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "title":"This is the second message to Arun.",
+          "description":"This is a sample description to the message which has the above title",
+          "created_at":"2017-05-01 09:45:00",
+          "important":"0"
+      },{
+        "messageId":4,
+          "recipient":"Nanda",
+          "recipient_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "sender":"Arun",
+          "sender_img":"http://simpleicon.com/wp-content/uploads/user1.png",
+          "title":"This is the second message to Nanda.",
+          "description":"This is a sample description to the message which has the above title",
+          "created_at":"2017-05-10 09:45:00",
+          "important":"0"
+      }
+]
+}
+
+
+
+)
+
+
+
+
+db.users.update(
+   { username: 'Nanda' },
+     {$set: {
+      'password':"123"
+        }
+     }
+)
