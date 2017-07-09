@@ -5,8 +5,9 @@ stack: Angular + MongoDB + Bootstrap
 
 run server:
 
-npm install
+  npm install
+  
 
-npm start
+  npm start
 
 
